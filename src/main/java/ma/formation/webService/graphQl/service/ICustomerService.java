@@ -9,9 +9,7 @@ import java.util.Optional;
 
 public interface ICustomerService {
     CustomerResponse saveCustomer (CustomerRequest customerRequest);
-    CustomerResponse getCustomerById (Long customerId);
-//    Optional<CustomerResponse> getCustomerByIdentityReference (String identityReference);
-//    Optional<CustomerResponse> getCustomerByUsername (String username);
+    CustomerResponse getCustomerById (Long customerId);;
     List<CustomerResponse> getAllCustomers ();
 
 }
