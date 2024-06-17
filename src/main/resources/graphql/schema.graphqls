@@ -1,0 +1,27 @@
+type Query{
+    getAllCustomers: [CustomerResponse]
+    getCustomerById(customerId:ID):CustomerResponse
+}
+type Mutation{
+    saveCustomer(customerRequest:CustomerRequest):CustomerResponse
+}
+input CustomerRequest{
+    ReferenceCustomer:String,
+    firstnameCustomer:String,
+    lastnameCustomer:String,
+    usernameCustomer:String,
+    villeCustomer:String,
+    genderAccount:String
+}
+type CustomerResponse{
+    idCustomer:ID,
+    ReferenceCustomer:String,
+    firstnameCustomer:String,
+    lastnameCustomer:String,
+    usernameCustomer:String,
+    villeCustomer:String,
+    genderAccount:String
+}
+enum GenderAccount{
+    MALLE,FEMALE
+}
