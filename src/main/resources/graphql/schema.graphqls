@@ -1,11 +1,15 @@
 type Query{
     getAllCustomers: [CustomerResponse]
     getCustomerById(customerId:ID):CustomerResponse
+    getAllBankAccounts: [BankAccountResponse]
+    GetByIdBankAccount(bankAccountId:ID):BankAccountResponse
 }
 type Mutation{
     saveCustomer(customerRequest:CustomerRequest):CustomerResponse
+    saveBankAccount(bankAccountRequest:BankAccountRequest):BankAccountResponse
 }
 input CustomerRequest{
+    idCustomer:ID,
     ReferenceCustomer:String,
     firstnameCustomer:String,
     lastnameCustomer:String,
@@ -24,4 +28,23 @@ type CustomerResponse{
 }
 enum GenderAccount{
     MALLE,FEMALE
+}
+input BankAccountRequest{
+    ribBankAccount:String,
+    amountBankAccount:String,
+    createAt:String,
+    accountStatus:String,
+    customerRequest:CustomerRequest
+
+}
+type BankAccountResponse{
+    idBankAccount:ID,
+    ribBankAccount:String,
+    amountBankAccount:String,
+    createAt:String,
+    accountStatus:String,
+    customerResponse:CustomerResponse
+}
+enum AccountStatus{
+    OPENED,CLOSED,BLOCKED
 }

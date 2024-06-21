@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import ma.formation.webService.graphQl.service.model.enums.GenderAccount;
 
+import java.util.Set;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,4 +33,7 @@ public class Customer {
     @Enumerated(EnumType.STRING)
     @Column(name = "Gender")
     private GenderAccount genderAccount;
+
+    @OneToMany(mappedBy = "customer")
+    private Set<BankAccount> bankAccounts;
 }
